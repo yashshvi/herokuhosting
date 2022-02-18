@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/images/logo1.PNG">
+  <!-- Bootstrap CSS -->
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"rel="stylesheet"> -->
+  <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.7" type="text/css" media="screen" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>
+    <%= title %>
+  </title>
+
+ 
+</head>
+
+
+<!-- //1st -->
+<style>
+ /* //here */
+  .Uppernav {
+    overflow: hidden;
+    position: fixed;
+    background-color: #568203;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    width: 100%;
+    top: 0%;
+    z-index: 9999;
+    display: flex;
+}
+.mypara{
+  margin-top: 1.3rem;
+    color:   #cee0ab;
+    font-size: 18px;
+    padding: 0px;
+    margin-left: 1rem;
+  
+  
+}
+
+.Uppernav a {
+  float: left;
+  display: block;
+  color: #cee0ab;;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.Uppernav a:hover {
+  background-color: #588308;
+   color: #8dbb36;
+}
+
+/* .topnav a.active {
+  background-color: #8dbb36;
+  color: #588308;
+} */
+/* .uppericon{
+  background-color: #cee0ab;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+} */
+.Uppernav .uppericon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .Uppernav a:not(:first-child) {display: none;}
+  .Uppernav a.uppericon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Uppernav.responsive {position: relative;}
+  .Uppernav.responsive .uppericon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .Uppernav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/* //navbar */
+.mynavbar{
+  background-color: #568203;
+    height: 1rem;
+   
+}
+.mynavinner li a{
+  color: #ACE1AF;
+}
+.navbar-brand{
+  color: #ACE1AF;
+}
+.con{
+  font-size: 3rem;
+    color: #568203;
+    margin: 15px;
+}
+.text-center.foot{
+  color: #568203;
+}
+
+
+</style>
+
+<style>
+ 
+  .cat1 ul li{
+    font-size: 12px;
+  }
+
+.icon i{
+  color: #568203;
+}
+  /* //here */
+  .topnav {
+  overflow: hidden;
+  background-color: #cee0ab;
+  margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 31px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 7rem;
+    
+    margin-bottom: 3rem;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #588308;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #588308;
+   color: #cee0ab;
+}
+
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+/* //navbar */
+.mynavbar{
+  background-color: #568203;
+    height: 1rem;
+   
+}
+.mynavinner li a{
+  color: #ACE1AF;
+}
+.navbar-brand{
+  color: #ACE1AF;
+}
+.con{
+  font-size: 3rem;
+    color: #568203;
+    margin: 15px;
+}
+.text-center.foot{
+  color: #568203;
+}
+
+
+</style>
+
+<body>
+  
+
+<!-- //2 -->
+<div class="Uppernav" id="myupperTopnav">
+  <p class="mypara">Lets cook</p>
+  <!-- <img src="/images/logo1.PNG"> -->
+  <% pages.forEach(function(page){ %>
+    <% if(page.slug=="home" ) { %>
+      <!-- <li class="nav-item1"> -->
+     
+        <a class="nav-link" href="/r"> <%=page.title %></a>
+      <!-- </li> -->
+      <% }else{ %>
+        <!-- <li class="nav-item"> -->
+          <a class="nav-link" href="/<%= page.slug %>">    <%=page.title %></a>
+        <!-- </li> -->
+        <% } %>
+          <% }) %>
+          <% if(user){ %>
+  <a href="/users/logout" class="active"> <%=user.username%> (logout) </a>
+  <% }else{ %>
+  <a href="/users/register">REGISTER</a>
+  <a href="/users/login">LOGIN</a>
+  <% } %>
+  <% if(user && user.admin==1){ %>
+  <a href="/adminpage/pages">Admin area</a>
+  <% } %>  
+  
+  <a href="javascript:void(0);" class="uppericon" onclick="myFunctionUpper()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+  <!-- /// -->
+  <!-- new nav -->
+  <%- messages('message', locals) %>
+    <% if(errors) { %>
+      <% errors.forEach((errors)=>{ %>
+        <div class="alert alert-danger ">
+          <%= errors.msg %>
+        </div>
+        <% }); %>
+          <% } %>
+
+            <!-- //main button -->
+            
+            <!-- ///hello responsive navbar  -->
+            <div class="topnav" id="myTopnav">
+              <a href="/products/get" class="active">All Products</a>
+              <% categories.forEach(function(c){ %>
+                <a href="/products/<%= c.slug %>">
+                    <%=c.title %>
+                  </a>
+                <% }); %>
+              <!-- <a href="#news">News</a>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a> -->
+              <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
+            </div>
+            <!-- //end here -->
+
+            <% pages.forEach(function(page){ %>
+              <% if(page.slug=="home" ) { %>
+
+                <% } %>
+                  <% }) %>
+                    </ul>
+
+
+                    <!-- //for upper nav -->
+                    <script>
+                      function myFunctionUpper() {
+                        var x = document.getElementById("myupperTopnav");
+                        if (x.className === "Uppernav") {
+                          x.className += " responsive";
+                        } else {
+                          x.className = "Uppernav";
+                        }
+                      }
+                      </script>
+<!-- //for second nav -->
+                    <script>
+                      function myFunction() {
+                        var x = document.getElementById("myTopnav");
+                        if (x.className === "topnav") {
+                          x.className += " responsive";
+                        } else {
+                          x.className = "topnav";
+                        }
+                      }
+                      </script>
+

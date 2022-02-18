@@ -1,0 +1,36 @@
+.sorting tr:not(.home)
+{
+    cursor: pointer;
+}
+.ui-state-highlight{
+    border: 2px solid purple;
+}
+#imageprev{
+    border: 2px solid black;
+width: 12px;    
+}
+#noimg{
+    width: 74px;
+}
+ul.gallery{
+    padding: 0px;
+}
+ul.gallery li:first-child{
+    margin-left: 0;
+}
+ul.gallery li{
+    margin: 20px;
+    display: inline-block;
+    list-style: none;
+}
+
+/*  <% categories.forEach(function(cat){ %>       
+
+           <option value="<%= cat.slug %>"
+           <% if(cat.slug==category){ %>
+                selected="selected"
+            <% } %>  
+            ><%=cat.title %></option>
+      <% }) %>
+
+ */

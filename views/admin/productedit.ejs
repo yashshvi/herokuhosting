@@ -1,0 +1,127 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="edit title">add a product</h2>
+<a href="/adminpage/product/" class="btn btn-primary">back </a>
+<br><br>
+<form method="POST" action="/adminpage/product/productedit/<%= id %>" enctype="multipart/form-data">
+  <input type="hidden" name="id" value="<%= id %>">
+  <div class="form-group">
+  <label for="">title</label>
+  <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="title">
+</div>
+<!-- <div class="form-group">
+    <label for="">description</label>
+    <input type="text" class="form-control" name="desc" value="<%= desc %>" placeholder="title">
+  </div> -->
+
+  <div class="form-group">
+    <label for="">description</label>
+    <textarea  type="text" class="form-control"  name="desc" placeholder="content"><%= desc %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">category</label>
+   <select name="category" class="form-control">;
+   
+
+    <% categories.forEach(function(cat){ %>       
+
+      <option value="<%= cat.slug %>"
+      <% if(cat.slug==category){ %>
+           selected="selected"
+       <% } %>  
+       ><%=cat.title %></option>
+ <% }) %>
+   </select>
+    <!-- <input type="text" class="form-control" name="desc" value="<%= desc %>" placeholder="title"> -->
+  </div>
+  <div class="form-group">
+    <label for="">video</label>
+    <input type="text" class="form-control" name="video" value="<%= video %>" placeholder="video">
+  </div>
+
+  <div class="form-group">
+    <label for="">current image</label>
+<p>
+  <%  if(image==" "){ %>
+        <img id="noimg" src="/images/noimg.png">
+  <%  }else{  %>
+        <img id="noimg" src="/productimages/<%=id %>/<%=image%>">
+  <%  } %>
+</p>   
+</div>
+<!-- // pimage display the name of the image -->
+  <div class="form-group">
+    <label for=""> upload image</label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="####" id="imageprev" >
+  </div>
+<input type="hidden" name="pimage" value="<%= image %>">  
+<button class="btb btn-default">submit</button>
+
+</form>
+<hr>
+<h3 class="page-head"> GALLERY</h3>
+<ul class="gallery">
+<%  galleryimg.forEach(function(image){ %>
+  <% if(image!="thumbs"){ %>
+  <li>
+  <img src="/productimages/<%=id %>/gallery/thumbs/<%=image %>"alt="">&nbsp;
+  <!-- <a class="confirmdeletion" href="/admin/product/deleatimage/<%=image %>?id=<%=id %>">delete</a> -->
+  <a class="confirmdeletion" href="/adminpage/product/deleatimage/<%=image %>?id=<%=id %>">delete</a>
+  
+</li>
+
+<% } %>
+<% }) %>
+</ul>
+<br>
+<!-- <form action="/adminpage/product/productgallery/<%=id %>" method="POST" enctype="multipart/form-data"
+   id="dropzone" class="dropzoneForm"> 
+   <div class="fallback">
+    <input type="file" name="gallery" multiple> -->
+    <!-- <input type="submit" value="upload"> 
+   </div>
+  </form> -->
+
+   <form action="/adminpage/product/productgallery/<%=id %>"  method="POST" enctype="multipart/form-data"
+     id="dropzoneForm" class="dropzone">
+      <div class="fallback">
+        <input type="file" name="file" multiple> 
+         <input type="submit" value="upload"> 
+       </div>
+    </form>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/basic.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.js"> 
+</script>
+<script>
+// this is for preview thr file before upload using readurl  
+
+function readURL(input){
+    if(input.files && input.files[0]){   //more then one file
+      var reader=new FileReader();  // FileReader read the content of input file
+      reader.onload=function(e){       //There are a couple ways you can do this. The most efficient way would be to use URL.createObjectURL() on the File from your <input>. Pass this URL to img.src to tell the browser to load the provided image.
+        $('#imageprev').attr('src',e.target.result).width(100).height(100);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $('#img').change(function(){
+    readURL(this);
+  });
+
+  // dropzone
+  Dropzone.options.dropzoneForm={
+    acceptedFiles:"image/*",  //accept all type of images
+   init:function(){
+     this.on("queuecomplete",function(file){
+    //   //  setTimeout(function(){
+    //   //    location.reload()
+    //   //  },1000)
+       })
+     }
+    }
+   
+</script>
+<%- include('../_layout/adminfoot'); -%>

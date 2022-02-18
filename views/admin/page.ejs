@@ -1,0 +1,44 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="page title">details of all pages</h2>
+<a href="/adminpage/pages/addpage" class="btn btn-primary">all page</a>
+<br><br>
+
+<table class="table table-striped sorting">
+    <thead>
+        <tr class="home">
+            <th>title</th>
+            <th>edit</th>
+            <th>delete</th>
+
+        </tr>
+    </thead>  
+     <!-- check adminpage.js -->
+  <tbody>
+     <% pages.forEach(function(page){ %>       
+                <tr id="id_<%= page._id %>" class="<%= page.slug %>">
+            <td><%= page.title %></td>
+            <td><a href="/adminpage/pages/edit/<%=page.id %>" >edit</a></td>
+            <%   if(page.slug=="home")   { %>
+                <td></td>
+           <% } else{ %>
+                <td><a class="conform" href="/adminpage/pages/delete/<%=page.id %>" >delete</a></td>
+          <%  } %>
+        </tr>
+   <% }); %>
+</tbody>
+</table>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script>
+    $('tbody').sortable({
+        items:"tr:not(.home)",   //tr wit not class homes  ie it will not drag home
+        placeholder:"ui-state-highlight",
+        update:function(){
+            var ids=$('tbody').sortable("serialize");
+            var url="/adminpage/pages/record-pages";
+            $.post(url,ids);
+        }
+    })
+</script>
+<%- include('../_layout/adminfoot'); -%>

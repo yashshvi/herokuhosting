@@ -1,0 +1,53 @@
+<%- include('_layout/head'); -%>
+<h1 class="formgroup" >
+ <%= title %>
+</h1>
+<style>
+  @media only screen and (max-width: 534px) {
+ 
+  .formdiv{
+    width: 24rem;
+  }
+}
+  .formgroup{
+    /* background-color: aqua; */
+      /* width: 40rem; */
+      text-align: center;
+  }
+  .btb {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: rgb(184, 238, 83);
+    border: 2px solid black;
+    color: black;
+  }
+  .img{
+    text-align: center
+  }
+  .formdiv{
+    position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+     max-width: fit-content;
+  }
+  </style>
+<div class="img">
+  <img src="/images/lognam.png">
+</div>
+<div class="formdiv">
+<form class="formgroup" method="POST" action="/users/login">
+   
+    <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" class="form-control" name="username" placeholder="username">
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input type="text" class="form-control" name="password" placeholder="password">
+      </div>
+     
+    <button class="btb btn-default">login</button>
+    
+    </form>
+  </div>

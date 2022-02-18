@@ -1,0 +1,52 @@
+<%- include('_layout/head'); -%>
+    <style>
+        .product1 {
+            /* background-color: cadetblue; */
+    /* align-items: center; */
+    text-align: center;
+        }
+        .p1 img{
+            max-width: 30rem;
+    max-height: 30rem;
+        }
+      
+        .s1{
+            margin: 1rem;
+    padding: 1rem;
+    /* color: blue; */
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    font-size: 2rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+        }
+    </style>
+
+    <div class="product1">
+        <div class="p1">
+            <img class="pimage" src="/productimages/<%= p.id %>/<%= p.image %>" alt="">
+        </div>
+        <div class="p2">
+        <div class="col ">
+            <h5 class="s1">
+                <%= p.title %>
+            </h5>
+            <h5 class="s1">
+                <%= p.desc %>
+            </h5>
+            <h5 class="s1">
+                <%= p.ingreadient %>
+            </h5>
+            <h5 class="s1">
+                <button id="myButton"> Watch video</button>
+                <!-- <%= p.video %> -->
+            </h5>
+        </div>
+       </div>
+    </div>
+
+   
+<script>
+      document.getElementById("myButton").onclick = function () {
+        location.href = "<%= p.video %>";
+    };
+</script>   

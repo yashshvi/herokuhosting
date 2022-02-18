@@ -1,0 +1,83 @@
+<%- include('_layout/head'); -%>
+<!-- carc is a array in which items are added when we click to add to cart and display in checkout .ejs -->
+
+<% if(typeof cart !== "undefined"){ %>
+<table class=" table table-striped" >
+    <tr>
+        <th>image</th>
+        <th>title</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th></th>
+        <th>subtotal</th>
+        
+    </tr>
+<% var total=0 %>
+    <% cart.forEach(function (p) { %>
+     <% var sub= parseFloat(p.qty*p.price).toFixed(1) %>
+    <% total+=+sub %>
+     <tr>
+         <td><img class="cpi" src="<%= p.image %>"></td>
+        
+         <td><%= p.title%></td> 
+         <td><%= p.price%></td> 
+         <td><%= p.qty%></td>
+         <td>
+             <a href="/cart/update/<%=p.title %>?action=add">+</a>&nbsp;
+             <a href="/cart/update/<%=p.title %>?action=remove">-</a>&nbsp;
+             <a href="/cart/update/<%=p.title %>?action=clear">clear</a>&nbsp;
+             
+         </td>
+         <td>$<%= sub %></td>
+     </tr>
+        <% }) %>
+      <td colspan="6" align="right"><b>total</b>$<%= parseFloat(total).toFixed(1) %></td>
+      <tr>
+          <td colspan="5" align="right">
+              <a class="clearbutton btn btn-dark" href="/cart/clean"> REMOVE CART </a>
+          </td>
+          <td colspan="6" align="right">
+            <a class="buynow btn btn-primary" href="/cart/buynow"> BUY NOW </a>
+        </td>
+      </tr>
+</table>
+<!-- //jultranet-facilitator@gmail.com -->
+<form class="paypal" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+    <input type="hidden" name="cmd" value="_cart">
+    <input type="hidden" name="upload" value="1">
+    
+   <input type="hidden" name="business" value="yashshvigupta01@gmail.com">  
+   <% var num=0 %>
+   <% cart.forEach(function(p){ %>
+    <%   num++; %>
+       <input type="hidden" name="item_name_<%= num %>" value="<%=p.title %>">
+       <input type="hidden" name="amount_<%= num %>" value="<%= p.price %>">
+       <input type="hidden" name="quantity_<%= num %>" value="<%= p.qty %>">
+       
+  <% }) %>
+   <input type="hidden" name="currency_code" value="USD">
+   <input type="hidden" name="amount" value="<%=total %>">
+   <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+
+ <% }else{ %>
+ <h3 class="text-center"> YOUR CART IS EMPTY</h3>
+ <% } %>
+ <script>
+$(function(){
+    $('a.clearbutton').on('click',function(){
+        if(!confirm('confirm clear cart'))
+        return false
+    })
+    $('a.buynow').on('click',function(e){
+        e.preventDefault();
+        $.get('/cart/buynow',function(){
+        $('form.paypal input[type=image]').click();
+        $('.ajaxbody').show();
+        })
+    })
+});
+
+ </script>
+<%- include('_layout/footer'); -%>
+

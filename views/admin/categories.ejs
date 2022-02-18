@@ -1,0 +1,30 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="page title"> Pages Category</h2>
+<a href="/admincat/category/addcat" class="btn btn-primary">add category</a>
+<br><br>
+
+<table class="table table-striped sorting">
+    <thead>
+        <tr >
+            <th>Category</th>
+            <th>edit</th>
+            <th>delete</th>
+
+        </tr>
+    </thead>  
+     <!-- check adminpage.js -->
+  <tbody>
+     <% categories.forEach(function(cat){ %>       
+                <tr>
+            <td><%= cat.title %></td>
+            <td><a href="/admincat/category/editcat/<%=cat.id %>" >edit</a></td>
+           
+                <td><a class="conform" href="/admincat/category/deletecat/<%=cat.id %>" >delete</a></td>
+        </tr>
+   <% }); %>
+</tbody>
+</table>
+
+
+<%- include('../_layout/adminfoot'); -%>

@@ -1,0 +1,21 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="category title">edit a page</h2>
+<a href="/admincat/category" class="btn btn-primary">back to all category page</a>
+<br><br>
+<form method="POST" action="/admincat/category/editcat/<%= id %>">
+<input type="hidden" name="id" value="<%= id %>">
+    <div class="form-group"> 
+  <label for="">title</label>
+  <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="title">
+</div>
+<div class="form-group"> 
+  <label for="">Nac-Catagory</label>
+  <input type="text" class="form-control" name="Nac-Catagory" value="<%= catagory %>" placeholder="Nac-Catagory">
+</div>
+
+<button class="btb btn-default">submit</button>
+
+</form>
+
+<%- include('../_layout/adminfoot'); -%>

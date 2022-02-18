@@ -1,0 +1,63 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="page title">add a product</h2>
+<a href="/adminpage/product" class="btn btn-primary">back </a>
+<br><br>
+<form method="POST" action="/adminpage/product/addproduct" enctype="multipart/form-data">
+<div class="form-group">
+  <label for="">title</label>
+  <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="title">
+</div>
+<!-- <div class="form-group">
+    <label for="">description</label>
+    <input type="text" class="form-control" name="desc" value="<%= desc %>" placeholder="title">
+  </div> -->
+
+  <div class="form-group">
+    <label for="">description</label>
+    <textarea  type="text" class="form-control"  name="desc" placeholder="content"><%= desc %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="">Ingreadient</label>
+    <input type="text" class="form-control" name="ingreadient" value="<%= ingreadient %>" placeholder="ingreadient">
+  </div>
+  <div class="form-group">
+    <label for="">category</label>
+   <select name="category" class="form-control">
+       <% categories.forEach(function(cat){ %>
+           <option value="<%= cat.slug %>"><%=cat.title %></option>
+      <% }) %>
+   </select>
+    <!-- <input type="text" class="form-control" name="desc" value="<%= desc %>" placeholder="title"> -->
+  </div>
+  <div class="form-group">
+    <label for="">video</label>
+    <input type="text" class="form-control" name="video" value="<%= video %>" placeholder="video">
+  </div>
+
+  
+  <div class="form-group">
+    <label for="">image</label>
+    <input type="file" class="form-control" name="image" id="img">
+    <img src="####" id="imageprev" >
+  </div>
+
+<button class="btb btn-default">submit</button>
+
+</form>
+<script>
+// this is for preview thr file before upload using readurl  
+function readURL(input){
+    if(input.files && input.files[0]){   //more then one file
+      var reader=new FileReader();  // FileReader read the content of input file
+      reader.onload=function(e){       //There are a couple ways you can do this. The most efficient way would be to use URL.createObjectURL() on the File from your <input>. Pass this URL to img.src to tell the browser to load the provided image.
+        $('#imageprev').attr('src',e.target.result).width(100).height(100);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $('#img').change(function(){
+    readURL(this);
+  });
+</script>
+<%- include('../_layout/adminfoot'); -%>

@@ -1,0 +1,245 @@
+#imageprev{
+border: 2px solid black;
+}
+/* .product{
+
+    border: 4px solid black;
+} */
+img.pimage{
+    padding: 10px 7px;
+    width: 286px;
+    height: 269px;
+}
+p{
+    text-align: center;
+    color: crimson;
+}
+a.pa{
+    /* display: inline-block; */
+    display: inline-block;
+    height: 89px;
+}
+.row.product.p{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.par{
+    padding: 1px 0px;
+    margin-top: 123px;
+    font-size: 23px;
+}
+.vd{
+    padding: auto;
+    font-size: 16px;
+}
+.row{
+  text-align: center;
+}
+img {
+    vertical-align: middle;
+    width: 153px;
+}
+.ajaxbody{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: white;
+    display: none;
+}
+.ajaxinner{ 
+    text-align: center;
+}
+.paypal{
+    position: absolute;
+    left: -3000px;
+}
+.lo{
+    padding: 1px 29px;
+}
+.tags li{
+    padding:3px 2px;
+    
+    display: contents;
+    padding: 3px 2px;
+}
+
+.tags li a{
+    padding: 0px 9px;
+}
+.container{
+    border: 2px solid;
+    /* width: 23px; */
+    height: 56px;
+    color: black;
+}
+.alert-error{
+    background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+    /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0); */
+    background-repeat: repeat-x;
+    border-color: #dca7a7;
+}
+/* navbar */
+#komal {
+    color: floralwhite;
+    padding: 12px 12px;
+    font-size: 16px;
+}
+
+.navbar-light .navbar-brand {
+    color: floralwhite;
+    font-size: 23px;
+}
+.tags li a {
+    padding: 0px 9px;
+    color: deeppink;
+}
+.cat ul{
+    align-items: center;
+}
+.cat1{
+display: flex;
+flex-direction: row;
+list-style-type: none;
+margin: 0;
+padding: 0;
+justify-content: center;
+font-size: 21px;}
+
+.cat1 li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 12px 12px;
+    color: crimson;
+}
+.cat1 li a{
+    color: crimson;
+}
+.row{
+    /* margin: 0px 0px; */
+    justify-content: center;    
+}
+.product{
+    margin: 0px 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.couinner img{
+height: 45rem;
+width: 45rem;
+}
+
+.price{
+    margin: 0px 0 7px;
+}
+.par p{
+    font-weight: bold;
+}
+.box{
+   row-gap: 12px;
+}
+.row1{
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    /* margin: 0px 0px; */
+    margin-right: 0px;
+    margin-left: 0px;
+    /* display: flex; */
+}
+.row1.product.p{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.part2{
+    display: flex;
+}
+.con p{
+    text-align: center;
+    font-size: 23px;
+    color: crimson;
+}
+.row{
+    margin-left: 0px ;
+    margin-right: 0px;
+}
+.foot h3{
+    position: fixed;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    background-color: black;
+    color: honeydew;
+}
+/* product decoratoion */
+.but{
+    background-color: black;
+    border: none;
+    border-radius: 29px;
+}
+.but a{
+    color: white;
+    text-decoration: none;
+}
+.but a:hover{
+    color: crimson;
+    text-decoration: none;
+}
+/* product style */
+.part22 {
+    position: absolute;
+    padding: 32px 0px;
+    /* right: -230px; */
+    left: 55rem;
+}
+.part22 a{
+    color: black;
+    font-weight: bold;
+}
+.p1 {
+    font-size: 27px;
+    font-weight: bold;
+    color: rgb(15, 10, 11);
+}
+.p2{
+    font-size: 24px;
+    color: crimson;
+}
+.p3{
+    font-size: 22px;
+    color: crimson;
+}
+.part22 h1{
+    color: crimson;
+}
+.pic ul{
+    display: flex;
+    padding: 62px 0px;
+    flex-wrap: nowrap;
+}
+.gapp{
+padding: 0px 22px;}
+.card-title{
+    color: #58791a;
+    font-weight: 700;
+    font-size: 16px;
+}
+.card-text{
+    color: #58791a;
+}
+.but{
+    background-color: #628b16;
+    color: rgb(12, 112, 12);
+}
+
+.but a:hover {
+ color: #324214;
+}
+.s1{
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    color: green;
+}
+

@@ -1,0 +1,57 @@
+<%- include('_layout/head'); -%>
+<style>
+  .row{
+    /* background-color: aqua; */
+  }
+  .imgparent{
+    /* background-color: blue; */
+  }
+  .imgparent img{
+    max-width: 22rem;
+  }
+  .rightpart{
+    /* background-color: burlywood; */
+  }
+  .rightpart > div{
+    margin-left: 4rem;
+  }
+</style>
+
+
+
+<div class="row " >
+  <!-- <h5>komallll</h5> -->
+<% products.forEach(function (p) { %>
+
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4 imgparent">
+        <img class="pimage" src="/productimages/<%= p.id %>/<%= p.image %>" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8 rightpart">
+        <div class="card-body">
+          <h5 class="card-title"><%= p.title %></h5>
+          <!-- <h5 class="card-title"><%= p.video %></h5> -->
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <button class="but"> 
+            <!-- <h2>uijb</h2> -->
+           <a class="vd" href="/products/<%= p.category %>/<%= p.slug %>"> view details</a>
+          </button>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <h5>riya </h5> -->
+ 
+<% }) %>
+
+</div>
+
+<br>
+<!-- <div class="an">.ansester1111</div> -->
+<!-- <h3>hgckhvjlb</h3> -->
+<%- include('_layout/footer'); -%>
+

@@ -1,0 +1,52 @@
+<%- include('../_layout/adminhead'); -%>
+
+<h2 class="page title">details of all products</h2>
+<a href="/adminpage/product/addproduct" class="btn btn-primary">Add product to page</a>
+<br><br>
+<% if(count>0) { %>
+
+<table class="table table-striped sorting">
+    <thead>
+        <tr class="home">
+            <th>PRODUCT</th>
+            <th>VIDEO</th>
+            <th>Ingreadient</th>
+            
+            <th>CATEGORY</th>
+            <th>IMAGE</th>
+            <th>edit</th>
+            <th>delete</th>
+
+        </tr>
+    </thead>  
+     <!-- check adminpage.js -->
+     <!-- // The objects they identify include things such as variables, functions, properties, events, and objects -->
+     <!-- // all the images are save with thei id  -->
+             
+  <tbody>
+     <% products.forEach(function(pro){ %>       
+                <tr>
+            <td><%= pro.title %></td>  
+            <td><%= pro.video %></td> 
+            <td><%= pro.ingreadient %></td> 
+            
+             <td><%= pro.category %></td>
+            <td>
+                <% if(pro.image==""){ %>
+                 <img id="noimg" src="/images/noimg.jpg" alt="width:34px">
+               <% }else{ %>
+                 <img id="noimg" src="/productimages/<%= pro.id %>/<%=pro.image %>">  
+                   <% } %>
+
+                </td>
+            <td><a href="/adminpage/product/productedit/<%=pro.id %>" >edit</a></td>
+          
+            <td><a class="conform" href="/adminpage/product/deletepro/<%=pro.id %>" >delete</a></td>
+        </tr>
+   <% }); %>
+</tbody>
+</table>
+<% }else{ %>
+<h3 class="text center">no product available</h3>
+<% } %>
+<%- include('../_layout/adminfoot'); -%>
